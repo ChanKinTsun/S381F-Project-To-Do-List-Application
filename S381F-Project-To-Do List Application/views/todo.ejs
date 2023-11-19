@@ -1,49 +1,16 @@
 <html>
 <head>
-    <title> ToDo App </title>
+    <title> Add Task </title>
     <link href="/style.css" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if the form is submitted from the Add Task page
-            var fromAddTaskPage = <%= fromAddTaskPage ? 'true' : 'false' %>;
-
-            if (!fromAddTaskPage) {
-                // If not from Add Task page, prevent form submission
-                var form = document.querySelector('form');
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    alert("Form submission prevented. Please use the Add Task button to add a task.");
-                    // You can customize the alert or handle it in another way as per your requirement
-                });
-            }
-        });
-    </script>
 </head>
 <body>
     <div class="container">
-        <h2> Todo List </h2>
-        <form action="/completetask" method="POST">
-            <% if (t.length === 0) { %>
-                <p>Press the Add Task button to add a task!</p>
-            <% } else { %>
-                <ul>
-                    <% for (var i = 0; i < t.length; i++) { %>
-                        <li>
-                            <input type="checkbox" name="check" value="<%= t[i] %>" />
-                            <%= t[i] %>
-                        </li>
-                    <% } %>
-                </ul>
-                <br>
-                <button type="submit"> Complete </button>
-                <!-- Add a hidden input field to indicate that the form is submitted from this page -->
-                <input type="hidden" name="fromAddTaskPage" value="true">
-            <% } %>
+        <h2>ToDo List</h2>
+        <form action="addtask" method="POST">
+            <input type="text" name="newtask" placeholder="add new task" required>
+            <button> + </button><br><hr><br>
+            <button><a href="/back">Back</a></button>
         </form>
-        <a href="/addtask" role="button"><h2>Add Task</h2></a>
-        <a href="/completetask" role="button"> <h2> Completed task </h2></a><br>
-        <hr><br>
-        <button><a href="/logout" >Logout</a></button>
     </div>
 </body>
 </html>
