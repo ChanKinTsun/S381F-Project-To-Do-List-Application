@@ -20,6 +20,8 @@
                 </ul>
                 <br>
                 <button type="submit"> Complete </button>
+                <!-- Add a hidden input field to indicate that the form is submitted from this page -->
+                <input type="hidden" name="fromAddTaskPage" value="true">
             <% } %>
         </form>
         <a href="/addtask" role="button"><h2>Add Task</h2></a>
@@ -29,4 +31,3 @@
     </div>
 </body>
 </html>
-
