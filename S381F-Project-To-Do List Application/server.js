@@ -10,21 +10,20 @@ const mongourl = 'mongodb+srv://rogerchan:12345678abc@cluster0.nkfu5zj.mongodb.n
 const dbName = 'project'
 
 const client = new MongoClient(mongourl, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
+	serverSelectionTimeoutMS: 5000,
 });
 
 try {
-   client.connect(err => {
-      const db = client.db(dbName)
-
-      db.command({ ping: 1 }, () => {
-         client.close(() => console.log(`connected to Mongodb server.`))
-      })
-   })
+   client.connect().then(() => {
+      const db = client.db(dbName);
+      console.log(`Connected to MongoDB server.`);
+   }).catch(err => {
+      console.error(`Error connecting to MongoDB: ${err}`);
+   });
 } catch (err) {
-   console.error(err)
+   console.error(err);
 }
+
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
