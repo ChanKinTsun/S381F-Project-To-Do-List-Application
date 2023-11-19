@@ -1,7 +1,6 @@
 const assert = require('assert');
 const express = require('express');
 const session = require('cookie-session');
-const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
