@@ -7,16 +7,20 @@
             text-decoration: none;
         }
     </style>
+    <script>
+        function clearInput() {
+            document.getElementById('newtask').value = '';
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h2>ToDo List</h2>
         <form action="addtask" method="POST">
-            <input type="text" name="newtask" placeholder="add new task" required>
+            <input type="text" id="newtask" name="newtask" placeholder="add new task" required>
             <button> + </button><br><hr><br>
-            <button><a href="/back">Back</a></button>
+            <button onclick="clearInput()"><a href="/back">Back</a></button>
         </form>
     </div>
 </body>
 </html>
-
