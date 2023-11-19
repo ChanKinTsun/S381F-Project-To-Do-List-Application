@@ -2,15 +2,15 @@
 <head>
     <title> Add Task </title>
     <link href="/style.css" rel="stylesheet">
-    <style>
-        button a {
-            text-decoration: none;
-        }
-    </style>
     <script>
-        function clearInput() {
-            document.getElementById('newtask').value = '';
-        }
+        window.onload = function() {
+            var backButton = document.getElementById('backButton');
+            var textField = document.getElementById('newtask');
+
+            backButton.addEventListener('click', function() {
+                textField.removeAttribute('required');
+            });
+        };
     </script>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <form action="addtask" method="POST">
             <input type="text" id="newtask" name="newtask" placeholder="add new task" required>
             <button> + </button><br><hr><br>
-            <button onclick="clearInput()"><a href="/back">Back</a></button>
+            <button id="backButton"><a href="/back">Back</a></button>
         </form>
     </div>
 </body>
