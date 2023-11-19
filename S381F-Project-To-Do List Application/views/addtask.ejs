@@ -2,25 +2,15 @@
 <head>
     <title> Add Task </title>
     <link href="/style.css" rel="stylesheet">
-    <script>
-        window.onload = function() {
-            var backButton = document.getElementById('backButton');
-            var textField = document.getElementById('newtask');
-
-            backButton.addEventListener('click', function() {
-                textField.removeAttribute('required');
-            });
-        };
-    </script>
 </head>
 <body>
     <div class="container">
         <h2>ToDo List</h2>
         <form action="addtask" method="POST">
-            <input type="text" id="newtask" name="newtask" placeholder="add new task" required>
+            <input type="text" name="newtask" placeholder="add new task" required>
             <button> + </button><br><hr><br>
-            <button id="backButton"><a href="/back">Back</a></button>
         </form>
+        <button><a href="/back">Back</a></button>
     </div>
 </body>
 </html>
