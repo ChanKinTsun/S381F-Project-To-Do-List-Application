@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "description": "COMPS381F project",
+    "author": "Chan Kin Tsun",
+    "version": "0.0.1",
+    "engines": {
+        "node": "^14.15.1"
+    },
+    "dependencies": {
+        "assert": "^1.4.1",
+        "body-parser": "^1.18.3",
+        "cookie-session": "latest",
+        "ejs": "*",
+        "express": "*",
+        "mongodb": "3.6.5"
+    },
+    "engine": "node >= 12.0.0",
+    "scripts": {
+        "start": "node server.js"
+    }
+}

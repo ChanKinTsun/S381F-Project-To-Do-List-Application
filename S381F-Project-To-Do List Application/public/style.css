@@ -1,0 +1,73 @@
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #4285f4;
+}
+
+a[href="/addtask"],
+a[href="/completetask"] {
+    color: #4285f4;
+}
+
+button {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+h2 {
+    color: #4285f4;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}

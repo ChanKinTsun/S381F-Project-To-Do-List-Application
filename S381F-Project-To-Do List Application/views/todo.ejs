@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title> ToDo App </title>
+    <link href="/style.css" rel="stylesheet">
+    <style>
+        button a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Todo List </h2>
+        <form action="/completetask" method="POST">
+            <% if (t.length === 0) { %>
+                <p>Press the Add Task button to add a task!</p>
+            <% } else { %>
+                <ul>
+                    <% for (var i = 0; i < t.length; i++) { %>
+                        <li>
+                            <input type="checkbox" name="check" value="<%= t[i] %>" />
+                            <%= t[i] %>
+                        </li>
+                    <% } %>
+                </ul>
+                <br>
+                <button type="submit"> Complete </button>
+            <% } %>
+        </form>
+        <a href="/addtask" role="button"><h2>Add Task</h2></a>
+        <a href="/completetask" role="button"> <h2> Completed task </h2></a><br>
+        <hr><br>
+        <button><a href="/logout" >Logout</a></button>
+    </div>
+</body>
+</html>
+

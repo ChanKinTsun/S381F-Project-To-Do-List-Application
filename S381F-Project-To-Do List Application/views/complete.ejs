@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title> ToDo App </title>
+    <link href="/style.css" rel="stylesheet">
+    <style>
+         button a {
+            text-decoration: none;
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Completed task </h2>
+
+        <% if (c.length === 0) { %>
+            <p>Nothing complete yet!</p>
+        <% } else { %>
+            <form action="/deletecompleted" method="POST"> 
+
+                <% for(var i = 0; i < c.length; i++){ %>
+                    <li>
+                        <input type="checkbox" name="deleteCheck" value="<%= c[i] %>" />
+                        <%= c[i] %>
+                    </li>
+                <% } %>
+                <br>
+                <button type="submit"> Delete </button><hr><br>
+            </form>
+        <% } %>
+
+        <button><a href="/back" >Back</a></button>
+    </div>
+</body>
+</html>
+
