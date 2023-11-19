@@ -2,6 +2,22 @@
 <head>
     <title> ToDo App </title>
     <link href="/style.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the form is submitted from the Add Task page
+            var fromAddTaskPage = <%= fromAddTaskPage ? 'true' : 'false' %>;
+
+            if (!fromAddTaskPage) {
+                // If not from Add Task page, prevent form submission
+                var form = document.querySelector('form');
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    alert("Form submission prevented. Please use the Add Task button to add a task.");
+                    // You can customize the alert or handle it in another way as per your requirement
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
