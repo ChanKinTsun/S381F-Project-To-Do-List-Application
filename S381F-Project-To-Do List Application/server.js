@@ -78,7 +78,7 @@ req.session = null;
 res.redirect('/todo');
 });
 
-var task = ["finish assignment", "do revision on s381f"];
+var task = [];
 
 app.get("/todo", (req, res) => {
     res.status(200).render('todo', { name: req.session.username, t: task, c: complete });
@@ -98,7 +98,7 @@ app.post('/addtask', (req, res) => {
     res.redirect("/addtask");
 });
 
-var complete = ["finish s381f project"];
+var complete = [];
 
 app.post("/completetask", (req, res) => {
    var completeTask = req.body.check;
