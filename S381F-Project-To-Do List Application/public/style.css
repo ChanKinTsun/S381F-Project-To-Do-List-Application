@@ -1,20 +1,20 @@
 * {
-    font-family: "Roboto", sans-serif;
-    font-weight: normal;
+    font-family: "Roboto", sans-serif; /* Change font to Roboto for a more modern look */
+    font-weight: normal; /* Use normal weight for better readability */
 }
 
 body {
-    background: #f5f5f5;
-    color: #333;
+    background: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text color for better contrast */
     margin-top: 20px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 600px; /* Increase container width for better readability */
     margin: 0 auto;
     padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff; /* White background for container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
 }
 
 ul {
@@ -25,17 +25,19 @@ ul {
 
 a {
     text-decoration: none;
-    color: #4285f4;
+    color: #4285f4; /* Google Blue color for links */
 }
 
+/* Add Task and Completed Task Link Styles */
+/* Add Task Link Specific Style */
 a[href="/addtask"],
 a[href="/completetask"] {
-    color: #4285f4;
+    color: #4285f4; /* Google Blue color for links */
 }
 
 button {
-    background-color: #4285f4;
-    color: #fff;
+    background-color: #4285f4; /* Google Blue color for buttons */
+    color: #fff; /* White text for better visibility */
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -44,30 +46,33 @@ button {
 }
 
 button a {
-    color: #fff;
+    color: #fff; /* White text for button links */
     text-decoration: none;
 }
 
 button:hover {
-    background-color: #357ae8;
+    background-color: #357ae8; /* Darker blue on hover */
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #ccc;
+    background: #ccc; /* Light gray horizontal rule */
 }
 
+/* Update checkbox style */
 input[type="checkbox"] {
     margin-right: 5px;
 }
 
-
+/* Update the h2 style */
 h2 {
-    color: #4285f4;
+    color: #4285f4; /* Google Blue color for heading */
 }
 
+/* Update the link style inside buttons */
 button a {
     color: #fff;
     text-decoration: none;
 }
+
