@@ -4,7 +4,7 @@ Group: 22
 Name: 
 Chan Kin Tsun (13395240)
 
-Application link: https://projectsample381.render.com/
+Application link: https://s381f-group22.onrender.com/
 
 # Intro
 
