@@ -12,18 +12,17 @@ const dbName = 'project'
 const client = new MongoClient(mongourl, {
 	serverSelectionTimeoutMS: 5000,
 });
-
+let db;
 try {
-   client.connect().then(() => {
-      const db = client.db(dbName);
-      console.log(`Connected to MongoDB server.`);
-   }).catch(err => {
-      console.error(`Error connecting to MongoDB: ${err}`);
-   });
+  client.connect().then(() => {
+    db = client.db(dbName); // Assign client.db to the global db variable
+    console.log(`Connected to MongoDB server.`);
+  }).catch(err => {
+    console.error(`Error connecting to MongoDB: ${err}`);
+  });
 } catch (err) {
-   console.error(err);
+  console.error(err);
 }
-
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -78,25 +77,45 @@ req.session = null;
 res.redirect('/todo');
 });
 
+
+const addTask = async function (db, createdDocuments) {
+  try {
+    const result = await db.collection('tasks').insertOne(createdDocuments);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
 var task = [];
 
 app.get("/todo", (req, res) => {
-    res.status(200).render('todo', { name: req.session.username, t: task, c: complete });
+  res.status(200).render('todo', { name: req.session.username, t: task });
 });
 
 app.get("/addtask", (req, res) => {
-    res.status(200).render('addtask', { name: req.session.username, t: task, c: complete });
+  res.status(200).render('addtask', { name: req.session.username, t: task });
 });
+
+app.post('/addtask', async function (req, res) {
+  try {
+    await addTask(db, { task: req.body.newtask });
+    task.push(req.body.newtask);
+    res.redirect("/addtask");
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 
 app.get("/completetask", (req, res) => {
     res.status(200).render('complete', { name: req.session.username, t: task, c: complete });
 });
 
-app.post('/addtask', (req, res) => {
-    var newTask = req.body.newtask;
-    task.push(newTask);
-    res.redirect("/addtask");
-});
+
 
 var complete = [];
 
@@ -132,4 +151,3 @@ app.post("/deletecompleted", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
