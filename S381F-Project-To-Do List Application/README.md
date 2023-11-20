@@ -1,8 +1,7 @@
 # To-Do List Application
 
 Group: 22
-Name: 
-Chan Kin Tsun (13395240)
+Name: Chan Kin Tsun (13395240)
 
 Application link: https://s381f-group22.onrender.com/
 
